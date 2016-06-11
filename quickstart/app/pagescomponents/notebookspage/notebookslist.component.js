@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var notebookslist_component_1 = require('./notebookspage/notebookslist.component');
-var NotebooksPageComponent = (function () {
-    function NotebooksPageComponent() {
-        this.items = ['the first name', 'the second name', 'the third name'];
+var notebooksListComponent = (function () {
+    function notebooksListComponent() {
     }
-    NotebooksPageComponent = __decorate([
+    notebooksListComponent = __decorate([
         core_1.Component({
-            template: "\n\t\t<ul class=\"notebooks-container\">\n\t\t\t<notebooks-list *ngFor=\"let item of items\" [item]=\"item\"></notebooks-list>\n\t\t</ul>\n\t",
-            directives: [notebookslist_component_1.notebooksListComponent]
+            selector: 'notebooks-list',
+            templateUrl: '../../../templates/pagestemplate/notebookslist.tpl.html',
+            inputs: ['item']
         }), 
         __metadata('design:paramtypes', [])
-    ], NotebooksPageComponent);
-    return NotebooksPageComponent;
+    ], notebooksListComponent);
+    return notebooksListComponent;
 }());
-exports.NotebooksPageComponent = NotebooksPageComponent;
-//# sourceMappingURL=notebooks.component.js.map
+exports.notebooksListComponent = notebooksListComponent;
+//# sourceMappingURL=notebookslist.component.js.map
