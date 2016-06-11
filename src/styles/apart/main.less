@@ -1,0 +1,31 @@
+.main-body{
+	.main-txt;
+	width: 100%;
+	max-width: 960px;
+	border: 1px solid #ccc;
+	overflow: auto;
+	margin: auto;
+	.content-main{
+		width: 60%;
+		float: left;
+		padding: 10px;
+		.notebooks-container{
+			background: lighten(#ddd,10%);
+			padding: 10px;
+			border-radius: 2px;
+			.notebook-item{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 8px;
+				border-bottom: 1px solid @seventhColor;
+				font-weight: bold;
+			}
+		}
+	}
+	.content-aside{
+		width: 40%;
+		float: left;
+		padding: 10px;
+	}
+}
