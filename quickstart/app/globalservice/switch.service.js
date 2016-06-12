@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var notebookslist_component_1 = require('./notebookspage/notebookslist.component');
-var NotebooksPageComponent = (function () {
-    function NotebooksPageComponent() {
-        this.items = ['the first name', 'the second name', 'the third name'];
+var SwitchService = (function () {
+    function SwitchService() {
     }
-    NotebooksPageComponent = __decorate([
-        core_1.Component({
-            template: "\n\t\t<ul class=\"notebooks-container\">\n\t\t\t<notebooks-list *ngFor=\"let item of items;let index=index\" [nklinfo]=\"{items:items,index:index}\"></notebooks-list>\n\t\t</ul>\n\t",
-            directives: [notebookslist_component_1.notebooksListComponent]
-        }), 
+    SwitchService.prototype.switchOnOff = function () {
+        var switchState = false;
+        return function () {
+            switchState = !switchState;
+            return switchState;
+        };
+    };
+    SwitchService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], NotebooksPageComponent);
-    return NotebooksPageComponent;
+    ], SwitchService);
+    return SwitchService;
 }());
-exports.NotebooksPageComponent = NotebooksPageComponent;
-//# sourceMappingURL=notebooks.component.js.map
+exports.SwitchService = SwitchService;
+//# sourceMappingURL=switch.service.js.map

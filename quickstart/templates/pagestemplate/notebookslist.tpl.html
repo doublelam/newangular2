@@ -1,8 +1,8 @@
 <li class="notebook-item">
-	<a>{{item}}</a>
-	<div>
+	<a class="notebook-name">{{nklinfo.index}},{{nklinfo.items[nklinfo.index]}}</a>
+	<div class="operate-area" (mouseenter)="iconMouseIn()" (mouseleave)="iconMouseOut()">
 		<i class="fa fa-ellipsis-v"></i>
-		<ul class="operate-more">
+		<ul class="operate-more" *ngIf="ifMoreHoverd">
 			<li>Rename</li>
 			<li>delete</li>
 		</ul>

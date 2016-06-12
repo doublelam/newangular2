@@ -3,7 +3,7 @@ import {notebooksListComponent} from './notebookspage/notebookslist.component';
 @Component({
 	template: `
 		<ul class="notebooks-container">
-			<notebooks-list *ngFor="let item of items" [item]="item"></notebooks-list>
+			<notebooks-list *ngFor="let item of items;let index=index" [nklinfo]="{items:items,index:index}"></notebooks-list>
 		</ul>
 	`,
 	directives: [notebooksListComponent]

@@ -9,16 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var switch_service_1 = require('../../globalservice/switch.service');
 var notebooksListComponent = (function () {
-    function notebooksListComponent() {
+    function notebooksListComponent(swichService) {
+        this.swichService = swichService;
+        this.onOff = this.swichService.switchOnOff();
     }
+    notebooksListComponent.prototype.ngOnInit = function () {
+        this.ifMoreHoverd = false;
+    };
+    notebooksListComponent.prototype.iconMouseIn = function () {
+        this.ifMoreHoverd = this.onOff();
+        console.log(this.ifMoreHoverd);
+        this.nklinfo.items[1] = 'ss';
+    };
+    notebooksListComponent.prototype.iconMouseOut = function () {
+        this.ifMoreHoverd = this.onOff();
+        console.log(this.ifMoreHoverd);
+    };
     notebooksListComponent = __decorate([
         core_1.Component({
             selector: 'notebooks-list',
             templateUrl: '../../../templates/pagestemplate/notebookslist.tpl.html',
-            inputs: ['item']
+            providers: [switch_service_1.SwitchService],
+            inputs: ['nklinfo']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [switch_service_1.SwitchService])
     ], notebooksListComponent);
     return notebooksListComponent;
 }());
