@@ -21,11 +21,18 @@ var notebooksListComponent = (function () {
     notebooksListComponent.prototype.iconMouseIn = function () {
         this.ifMoreHoverd = this.onOff();
         console.log(this.ifMoreHoverd);
-        this.nklinfo.items[1] = 'ss';
     };
     notebooksListComponent.prototype.iconMouseOut = function () {
         this.ifMoreHoverd = this.onOff();
         console.log(this.ifMoreHoverd);
+    };
+    notebooksListComponent.prototype.deleteNotebook = function () {
+        if (confirm('Are you sure to delete it?')) {
+            this.nklinfo.items.splice(this.nklinfo.index, 1);
+        }
+        else {
+            console.log('do not delete it');
+        }
     };
     notebooksListComponent = __decorate([
         core_1.Component({

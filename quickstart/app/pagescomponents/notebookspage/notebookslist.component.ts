@@ -13,16 +13,22 @@ export class notebooksListComponent implements OnInit{
     constructor(private swichService: SwitchService){
         this.onOff = this.swichService.switchOnOff();
     }
-    ngOnInit(){
+    ngOnInit():void{
         this.ifMoreHoverd = false;
     }
-    iconMouseIn(){ 
+    iconMouseIn():void{ 
         this.ifMoreHoverd = this.onOff();
         console.log(this.ifMoreHoverd);
-        this.nklinfo.items[1] = 'ss';
     }
-    iconMouseOut(){
+    iconMouseOut():void{
         this.ifMoreHoverd = this.onOff();
         console.log(this.ifMoreHoverd);
+    }
+    deleteNotebook():void{
+       if(confirm('Are you sure to delete it?')){
+           this.nklinfo.items.splice(this.nklinfo.index,1);
+       }else{
+           console.log('do not delete it');
+       }
     }
 }
