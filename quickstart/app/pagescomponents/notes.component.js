@@ -14,7 +14,7 @@ var NotesPageComponent = (function () {
     }
     NotesPageComponent = __decorate([
         core_1.Component({
-            templateUrl: '../../templates/pagestemplate/notes.tpl.html'
+            template: "\n\t\t<div class=\"notes-notebook\">\n\t\t\t<i class=\"fa fa-book\"></i>\n\t\t\t<span>name</span>\n\t\t</div>\n\t\t\n\t"
         }), 
         __metadata('design:paramtypes', [])
     ], NotesPageComponent);

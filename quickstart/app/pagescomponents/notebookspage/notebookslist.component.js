@@ -10,29 +10,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var switch_service_1 = require('../../globalservice/switch.service');
+var notebooks_service_1 = require('../../globalservice/notebookservice/notebooks.service');
 var notebooksListComponent = (function () {
-    function notebooksListComponent(swichService) {
+    function notebooksListComponent(swichService, notebooksService) {
         this.swichService = swichService;
-        this.onOff = this.swichService.switchOnOff();
+        this.notebooksService = notebooksService;
     }
     notebooksListComponent.prototype.ngOnInit = function () {
+        this.onOff = this.swichService.switchOnOff();
+        this.newOnOff = this.swichService.switchOnOff();
         this.ifMoreHoverd = false;
+        this.ifEditClick = false;
+        this.renameInput = this.notebooksService.notebooksData.notebooks[this.nklinfo.index].name;
     };
     notebooksListComponent.prototype.iconMouseIn = function () {
         this.ifMoreHoverd = this.onOff();
-        console.log(this.ifMoreHoverd);
     };
     notebooksListComponent.prototype.iconMouseOut = function () {
         this.ifMoreHoverd = this.onOff();
-        console.log(this.ifMoreHoverd);
     };
     notebooksListComponent.prototype.deleteNotebook = function () {
         if (confirm('Are you sure to delete it?')) {
-            this.nklinfo.items.splice(this.nklinfo.index, 1);
+            this.notebooksService.notebooksData.notebooks.splice(this.nklinfo.index, 1);
         }
         else {
             console.log('do not delete it');
         }
+    };
+    notebooksListComponent.prototype.renameConfirm = function () {
+        this.notebooksService.notebooksData.notebooks[this.nklinfo.index].name = this.renameInput;
+        this.ifEditClick = this.newOnOff();
+    };
+    notebooksListComponent.prototype.renameCancle = function () {
+        this.renameInput = this.notebooksService.notebooksData.notebooks[this.nklinfo.index].name;
+        this.ifEditClick = this.newOnOff();
+    };
+    notebooksListComponent.prototype.editOnOff = function () {
+        this.ifEditClick = this.newOnOff();
     };
     notebooksListComponent = __decorate([
         core_1.Component({
@@ -41,7 +55,7 @@ var notebooksListComponent = (function () {
             providers: [switch_service_1.SwitchService],
             inputs: ['nklinfo']
         }), 
-        __metadata('design:paramtypes', [switch_service_1.SwitchService])
+        __metadata('design:paramtypes', [switch_service_1.SwitchService, notebooks_service_1.NotebooksService])
     ], notebooksListComponent);
     return notebooksListComponent;
 }());

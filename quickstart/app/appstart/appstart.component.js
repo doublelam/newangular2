@@ -14,26 +14,31 @@ var notebooks_component_1 = require('../pagescomponents/notebooks.component');
 var notes_component_1 = require('../pagescomponents/notes.component');
 var nav_component_1 = require('../homecomponents/nav.component');
 var pages_components_1 = require('../pagescomponents/pages.components');
+var notebooks_service_1 = require('../globalservice/notebookservice/notebooks.service');
 var AppStart = (function () {
-    function AppStart() {
+    function AppStart(notebooksService) {
+        this.notebooksService = notebooksService;
     }
+    AppStart.prototype.ngOnInit = function () {
+    };
     AppStart = __decorate([
         core_1.Component({
             selector: 'my-app',
             template: "\n\t\t<nav-component></nav-component>\n\t\t<pages-component></pages-component>\n\t",
-            directives: [nav_component_1.NavigationComponent, pages_components_1.RouterTemplate]
+            directives: [nav_component_1.NavigationComponent, pages_components_1.RouterTemplate],
+            providers: [notebooks_service_1.NotebooksService]
         }),
         router_1.Routes([
             {
-                path: '/notebooks',
+                path: '/notebooks/:bookname',
                 component: notebooks_component_1.NotebooksPageComponent
             },
             {
-                path: '/notes',
+                path: '/notes/:notename',
                 component: notes_component_1.NotesPageComponent
             }
         ]), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [notebooks_service_1.NotebooksService])
     ], AppStart);
     return AppStart;
 }());

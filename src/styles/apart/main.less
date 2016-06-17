@@ -14,17 +14,63 @@
 		width: 60%;
 		float: left;
 		padding: 10px;
+		.create-notebook{
+			.add-icon-container{
+				text-align: right;
+				padding: 10px;
+				.fa-plus{
+					font-size: 1.2rem;
+					font-weight: lighter;
+					color: @greenBackground;
+				}
+			}
+			.add-content-area{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 10px;
+				input{
+					flex: 1;
+					min-width: 0;
+				}
+				button{
+					margin-left: 10px;
+				}
+			}
+		}
 		.notebooks-container{
 			background: lighten(#ddd,10%);
 			padding: 10px;
 			border-radius: 2px;
+			box-shadow: @shdwCls1;
 			.notebook-item{
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				padding: 8px;
-				border-bottom: 1px solid @seventhColor;
+				border-bottom: 1px solid lighten(@sixthColor,10%);
 				font-weight: bold;
+				.notebook-name{
+					display: block;
+					flex: 1;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					.change-booksname{
+						display: flex;
+						margin-top: 10px;
+						align-items: center;
+						justify-content: space-between;
+						input{
+							flex: 1;
+							width: 0;
+							min-width: 0;
+						}
+						button{
+							margin-left: 10px;
+						}
+					}
+				}
 				.operate-area{
 					position: relative;
 					.fa-ellipsis-v{
@@ -39,10 +85,17 @@
 						background: #fff;
 						border-radius: 2px;
 						box-shadow: @shdwCls2;
-						padding: 10px;
+						overflow: hidden;
 						right: 0;
 						top: 0;
-						
+						z-index: 1;
+						cursor: default;
+						li{
+							padding: 10px;
+						}
+						li:hover{
+							background-color: darken(#fff,10%);
+						}
 					}
 				}
 			}

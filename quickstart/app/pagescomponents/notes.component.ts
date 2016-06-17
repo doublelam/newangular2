@@ -1,6 +1,12 @@
 import {Component} from '@angular/core';
 @Component({
-	templateUrl: '../../templates/pagestemplate/notes.tpl.html'
+	template: `
+		<div class="notes-notebook">
+			<i class="fa fa-book"></i>
+			<span>name</span>
+		</div>
+		
+	`
 })
 export class NotesPageComponent{
 	

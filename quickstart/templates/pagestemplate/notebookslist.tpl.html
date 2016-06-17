@@ -1,9 +1,13 @@
 <li class="notebook-item">
-	<a class="notebook-name">{{nklinfo.index}},{{nklinfo.items[nklinfo.index]}}</a>
+	<a class="notebook-name">{{nklinfo.index}},{{renameInput}},{{notebooksService.notebooksData.notebooks[nklinfo.index].name}}
+		<div class="change-booksname" *ngIf="ifEditClick">
+			<input type="text" [(ngModel)]="renameInput"><button class="main" [disabled]="renameInput===''" (click)="renameConfirm()">Confirm</button><button (click)="renameCancle()">Cancel</button>
+		</div>
+	</a>
 	<div class="operate-area" (mouseenter)="iconMouseIn()" (mouseleave)="iconMouseOut()">
 		<i class="fa fa-ellipsis-v"></i>
 		<ul class="operate-more" *ngIf="ifMoreHoverd">
-			<li>Rename</li>
+			<li (click)="editOnOff()">Rename</li>
 			<li (click)="deleteNotebook()">Delete</li>
 		</ul>
 	</div>

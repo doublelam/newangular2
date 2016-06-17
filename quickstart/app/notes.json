@@ -1,0 +1,38 @@
+{
+	"notebooks":[
+		{
+			"name": "my first notebook's name",
+			"notes": [
+				{
+					"title": "my 1st books' note",
+					"content": "whatever some content"
+				},
+				{
+					"title": "my 2st books' note",
+					"content": "whatever some content"
+				},
+				{
+					"title": "my 3st books' note",
+					"content": "whatever some content"
+				}
+			]
+		},
+		{
+			"name": "my second notebook's name",
+			"notes": [
+				{
+					"title": "my 1st books' note",
+					"content": "whatever some content"
+				},
+				{
+					"title": "my 2st books' note",
+					"content": "whatever some content"
+				},
+				{
+					"title": "my 3st books' note",
+					"content": "whatever some content"
+				}
+			]
+		}
+	]
+}
